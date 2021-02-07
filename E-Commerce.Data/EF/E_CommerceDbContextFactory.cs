@@ -10,19 +10,19 @@ namespace E_Commerce.Data.EF
 {
     public class E_CommerceDbContextFactory : IDesignTimeDbContextFactory<E_CommerceDbContext>
     {
-        public EShopDbContext CreateDbContext(string[] args)
+        public E_CommerceDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("eShopSolutionDb");
+            var connectionString = configuration.GetConnectionString("E_CommerceDb");
 
-            var optionsBuilder = new DbContextOptionsBuilder<EShopDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<E_CommerceDbContext>();
             optionsBuilder.UseSqlServer(connectionString);
 
-            return new EShopDbContext(optionsBuilder.Options);
+            return new E_CommerceDbContext(optionsBuilder.Options);
         }
     }
 }

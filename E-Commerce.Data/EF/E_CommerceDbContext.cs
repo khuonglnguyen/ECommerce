@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using E_Commerce.Data.Configurations;
 
 namespace E_Commerce.Data.EF
 {
@@ -13,26 +14,26 @@ namespace E_Commerce.Data.EF
         {
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfiguration(new CartConfiguration());
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CartConfiguration());
 
-        //    modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
-        //    modelBuilder.ApplyConfiguration(new ProductConfiguration());
-        //    modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-        //    modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
-        //    modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
 
-        //    modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
-        //    modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
-        //    modelBuilder.ApplyConfiguration(new ContactConfiguration());
-        //    modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-        //    modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
-        //    modelBuilder.ApplyConfiguration(new PromotionConfiguration());
-        //    modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
+            modelBuilder.ApplyConfiguration(new PromotionConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
-        //    //base.OnModelCreating(modelBuilder);
-        //}
+            //base.OnModelCreating(modelBuilder);
+        }
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
