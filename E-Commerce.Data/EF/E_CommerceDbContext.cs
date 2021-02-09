@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using E_Commerce.Data.Configurations;
+using E_Commerce.Data.Extensions;
 
 namespace E_Commerce.Data.EF
 {
@@ -16,6 +17,7 @@ namespace E_Commerce.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configure using fluent API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
 
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
@@ -32,6 +34,8 @@ namespace E_Commerce.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 
+            //Data seeding
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
 
